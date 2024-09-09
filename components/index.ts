@@ -1,17 +1,20 @@
-import Hero from './Hero';
-import CusstomButton from './CusstomButton';
-import Navbar from './Navbar';
+import CustomButton from './CusstomButton'
+import CustomFilter from './CustomFilter'
 import Footer from './Footer';
-import CustomFilter from './CustomFilter';
-import SearchBar from './SearchBar';
-import SearchManufacturer from './SearchManufacturer';
+import NavBar from './Navbar'
+import SearchBar from './SearchBar'
+import Hero from "./Hero";
+import CarCard from "./CarCard";
+import CarDetails from "./CarDetails";
 
 export {
-    Hero,
-    CusstomButton,
-    Navbar,
-    Footer,
-    CustomFilter,
-    SearchBar,
-    SearchManufacturer,
-}
+  Hero,
+  CustomButton,
+  CustomFilter,
+  Footer,
+  NavBar,
+  SearchBar,
+  CarCard,
+  CarDetails,
+
+};
