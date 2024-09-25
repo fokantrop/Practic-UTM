@@ -2,15 +2,10 @@ import { fetchCars } from '@/utils';
 import { HomeProps } from '@/types';
 import { fuels, yearsOfProduction } from '@/constants';
 import { CarCard, ShowMore, SearchBar, CustomFilter, Hero } from '@/components';
+import CarList from '@/components/CarList';
 
 export default async function Home({ searchParams }: HomeProps) {
-  const allCars = await fetchCars({
-    manufacturer: searchParams.manufacturer || "",
-    year: searchParams.year || 2022,
-    fuel: searchParams.fuel || "",
-    limit: searchParams.limit || 10,
-    model: searchParams.model || "",
-  });
+  const allCars = await fetchCars();
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
@@ -35,12 +30,7 @@ export default async function Home({ searchParams }: HomeProps) {
 
         {!isDataEmpty ? (
           <section>
-            <div className='home__cars-wrapper'>
-              {allCars?.map((car) => (
-                <CarCard car={car} />
-              ))}
-            </div>
-
+            <CarList cars={allCars} />
             <ShowMore
               pageNumber={(searchParams.limit || 10) / 10}
               isNext={(searchParams.limit || 10) > allCars.length}
